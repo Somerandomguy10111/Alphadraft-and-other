@@ -1,0 +1,7 @@
+get team names
+for loop each team vs other team
+go on website for match for each team
+if (link to website found) -> proceed to link
+-> proceed like normal
+else
+go on
