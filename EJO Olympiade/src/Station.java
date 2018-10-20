@@ -12,4 +12,8 @@ public class Station {
 		this.Number = Number;
 		this.Name = Name;
 	}
+
+	public Station() {
+		// TODO Auto-generated constructor stub
+	}
 }
