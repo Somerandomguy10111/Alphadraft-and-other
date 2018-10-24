@@ -1,0 +1,7 @@
+package vampirism;
+
+public abstract class building {
+	int cost;
+	int income;
+	
+}

@@ -1,0 +1,17 @@
+package vampirism;
+
+public class farm extends building {
+	public farm(int level) {
+		
+		switch (level) {
+		case 1: 	cost = 210;
+					income = 3;
+					break;
+		case 2:   	cost = 400;
+					income = 7;
+					break;
+		}
+			
+	}
+
+}

@@ -1,0 +1,25 @@
+package vampirism;
+import javax.swing.JTree;
+import javax.swing.tree.*;
+
+
+public class main {
+
+	static building tentInstance = new tent();
+	TimeFrame rootTF = new TimeFrame();
+	rootTF
+	
+	DefaultMutableTreeNode root = new DefaultMutableTreeNode(tentInstance);
+	JTree myTree = new JTree(root);
+	
+	public static void main(String[] args) {
+		
+		timeFrame myTF = new timeFrame();
+		DefaultMutableTreeNode node = new DefaultMutableTreeNode();
+		while(){
+			
+		}
+	}
+
+	
+}

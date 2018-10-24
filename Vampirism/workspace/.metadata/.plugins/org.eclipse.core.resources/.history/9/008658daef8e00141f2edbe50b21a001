@@ -1,0 +1,67 @@
+package vampirism;
+
+public class TimeFrame {
+	
+	public int goldbank;
+	int income;
+	int numBuildings;
+	int time;
+	building newBuilding;
+	
+	public TimeFrame() {
+		goldbank		= 30;
+		income			= 0;
+		numBuildings	= 0;
+		time			= 0;
+	}
+	
+	public TimeFrame(int goldbank, int income, int numBuildings, int time) {
+		this.goldbank = goldbank;
+		this.income = income;
+		this.numBuildings = numBuildings;
+		this.time = time;
+	}
+	
+	
+	public void doStuff(building tent){
+		int buildChoice =(int) Math.ceil((Math.random()*9));
+		
+		switch (buildChoice) {
+        case 1:  tent.upgrade();
+                 break;
+        case 2:  newBuilding = new farm(1);
+                 break;
+        case 3:  newBuilding = new farm(2);
+                 break;
+        case 4:  newBuilding = new farm(3);
+                 break;
+        case 5:  newBuilding = new farm(4);
+                 break;
+        case 6:  newBuilding = new farm(5);
+                 break;
+        case 7:  newBuilding = new farm(6);
+                 break;
+        case 8:  newBuilding = new farm(7);
+                 break;
+        case 9:  newBuilding = new farm(8);
+                 break;
+        default: newBuilding = new building();
+                 break;
+		}
+		
+		// calculate time to build
+		int seconds = (int) Math.ceil(newBuilding.cost - goldbank / (double) income); // if something goes wrong.. check this (double to int)
+		// calc new time to build
+		goldbank = (income * seconds + goldbank) - newBuilding.cost;
+
+		time += seconds;
+
+		if(newBuilding instanceof farm)
+			income += newBuilding.income;
+		else
+			income += newBuilding.income/2;
+		
+		numBuildings++;
+	}
+
+}

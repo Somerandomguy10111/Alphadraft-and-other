@@ -1,0 +1,79 @@
+package vampirism;
+import java.util.Enumeration;
+import java.util.Vector;
+
+import javax.swing.JTree;
+import javax.swing.tree.*;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		building tentInstance = new tent();
+		
+		
+		TimeFrame myTFOld = new TimeFrame();
+		myTFOld.doStuff(tentInstance);
+		DefaultMutableTreeNode oldNode = new DefaultMutableTreeNode(myTFOld);
+		JTree mytree = new JTree(oldNode);
+		
+		DefaultMutableTreeNode root = oldNode;
+
+		TimeFrame myTFNew = new TimeFrame();
+
+		
+		while (myTFOld.numBuildings <= 35){
+
+			myTFNew = new TimeFrame(myTFOld.goldbank, myTFOld.income, myTFOld.numBuildings, myTFOld.time);
+			myTFNew.doStuff(tentInstance);
+			DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(myTFNew);
+			oldNode.add(newNode);
+			
+			oldNode = newNode;
+			myTFOld = myTFNew;
+			
+		}
+		
+		printBest( choosBest(root) );
+		
+		//chosseBest(root);
+	}
+	
+	public static DefaultMutableTreeNode choosBest(DefaultMutableTreeNode root){
+		// find node with lowest value of node.getUserData.time
+		// root.getAllLeaves
+		Vector leaves = new Vector();
+		
+		Enumeration en = root.depthFirstEnumeration();
+		while (en.hasMoreElements()) {
+		
+
+		  DefaultMutableTreeNode node = (DefaultMutableTreeNode) en.nextElement();
+		  if( node.isLeaf() )
+			  leaves.add(node);
+		}
+		// bestLeaf = firstLeaf
+		DefaultMutableTreeNode bestLeave = new DefaultMutableTreeNode(leaves.get(0));
+		for (int i=1 ; i < leaves.size() ; i++){
+			DefaultMutableTreeNode node = (DefaultMutableTreeNode) leaves.get(i);
+			TimeFrame TF = (TimeFrame) node.getUserObject();
+			TimeFrame bestTF = (TimeFrame) bestLeave.getUserObject();
+			
+			if(TF.time < bestTF.time)
+					bestLeave = node;
+		}
+		// for i = 1 to numLeaves
+		// if leaf[i] is better than bestLeaf
+		// bestLeaf = leaf[i]
+		return bestLeave;
+	}
+	
+	public static void printBest(DefaultMutableTreeNode bestNode){
+		System.out.println((bestNode.getUserObject().toString()));
+		if(!bestNode.isRoot())
+			printBest(bestNode.getPreviousNode());
+	}
+
+	
+}

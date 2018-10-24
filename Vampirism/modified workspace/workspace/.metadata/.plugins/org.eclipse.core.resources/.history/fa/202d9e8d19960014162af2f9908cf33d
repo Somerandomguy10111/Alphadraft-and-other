@@ -1,0 +1,26 @@
+package vampirism;
+
+public class bioDome extends building{
+	int bioDome1count = 0;
+	int bioDome2count = 0;
+	int globalevel;
+
+	public bioDome () {
+		if (bioDome1count != 0)
+		bioDome1count = 1;
+		cost = 64;
+		income = 0;
+		
+		else {
+		bioDome2count = 1;
+		cost = 256;
+		income = 0;
+		}
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Build a Biodome Level "+ globalevel;
+	}
+}

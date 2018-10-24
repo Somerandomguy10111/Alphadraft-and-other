@@ -1,0 +1,53 @@
+package vampirism;
+
+public class tent extends bioDome{
+	int level    = 0;
+	int wallcost = 0;
+	int wallLevel = 0;
+	
+	public tent() {
+		level = 1;
+		cost = 0;
+		income = 1;
+	}
+	
+	public void upgrade(){
+			if (level > 10){
+				if (level != 3 && bioDome1count != 0){
+				if (level!= 5 && bioDome2count != 0){
+				//do double conditions even work like that?
+				}
+				else{
+				cost = 2^(level-1)*50 + wallCost();
+				// does wallcost level refer to level on this line?
+				level++;
+				income = 2^(level-1);
+				}
+		}		
+			else {
+			level = 10;
+			}
+				}
+			}
+	
+	public int wallCost(){
+		int cost = 0;
+		switch (level){
+		case 1: cost = 4;
+				break;
+		case 2: cost = 8 + 16 + 32;
+				break;
+		case 4: cost = 64 + 128;
+				break;
+		default: cost = 0;
+		}
+		return cost;
+		
+	}
+	
+	@Override
+	public String toString() {
+		
+		return "upgrade your tent to level " + level;
+	}
+}

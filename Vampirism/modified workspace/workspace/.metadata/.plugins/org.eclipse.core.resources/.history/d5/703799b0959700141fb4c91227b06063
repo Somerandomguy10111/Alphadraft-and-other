@@ -1,0 +1,68 @@
+package vampirism;
+
+public class TimeFrame extends bioDome{
+	
+	public int goldbank;
+	int income;
+	int numBuildings;
+	int time;
+	building newBuilding;
+	
+	public TimeFrame() {
+		goldbank		= 30;
+		income			= 0;
+		numBuildings	= 0;
+		time			= 0;
+	}
+	
+	public TimeFrame(int goldbank, int income, int numBuildings, int time) {
+		this.goldbank = goldbank;
+		this.income = income;
+		this.numBuildings = numBuildings;
+		this.time = time;
+	}
+	
+	
+	public void doStuff(building tent){
+		int buildChoice =1; //(int) Math.ceil((Math.random()*3));
+		
+		switch (buildChoice) {
+		
+        case 1:  newBuilding = tent;
+        		 newBuilding.upgrade();
+                 break;
+        case 2:  newBuilding = new farm();
+                 break;
+        case 3:  newBuilding = new bioDome ();
+        		 if (bioDome2count == 0){
+        		 numBuildings++;
+        		 }
+                 break;
+        default: newBuilding = new building();
+                 break;
+		}
+		
+		// calculate time to build
+		int seconds = (int) Math.ceil(newBuilding.cost - goldbank / (double) income); // if something goes wrong.. check this (double to int)
+		// calc new time to build
+		goldbank = (income * seconds + goldbank) - newBuilding.cost;
+
+		time += seconds;
+
+		if(newBuilding instanceof farm)
+			income += newBuilding.income;
+		else
+			income += newBuilding.income/2;
+		
+		//if (newBuilding instanceof farm){
+		//numBuildings++;
+		}
+		//tent or 1st bioDome or  1st ancient tree
+	//}
+	
+	public String toString(){
+		
+		return newBuilding.toString();
+	}
+
+}

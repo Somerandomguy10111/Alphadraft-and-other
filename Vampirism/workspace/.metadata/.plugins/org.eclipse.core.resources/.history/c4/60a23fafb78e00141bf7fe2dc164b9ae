@@ -1,0 +1,11 @@
+package vampirism;
+
+public class building {
+	int cost;
+	int income;
+	
+	public building() {
+		// TODO Auto-generated constructor stub
+	}
+	
+}

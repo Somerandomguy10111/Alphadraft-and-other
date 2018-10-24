@@ -1,0 +1,22 @@
+package vampirism;
+
+public class building{
+	int cost;
+	int income;
+	int numbuildings;
+	
+	public building() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public void upgrade() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public String toString(){
+		return null;
+		
+	}
+	
+}

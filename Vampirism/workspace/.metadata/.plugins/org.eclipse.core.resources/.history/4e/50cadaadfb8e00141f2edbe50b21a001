@@ -1,0 +1,59 @@
+package vampirism;
+import java.util.Vector;
+
+import javax.swing.JTree;
+import javax.swing.tree.*;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		building tentInstance = new tent();
+		
+		
+		TimeFrame myTFOld = new TimeFrame();
+		myTFOld.doStuff(tentInstance);
+		DefaultMutableTreeNode oldNode = new DefaultMutableTreeNode(myTFOld);
+		JTree mytree = new JTree(oldNode);
+
+		TimeFrame myTFNew = new TimeFrame();
+
+		
+		while(myTFOld.numBuildings < 36){
+
+			myTFNew = new TimeFrame(myTFOld.goldbank, myTFOld.income, myTFOld.numBuildings, myTFOld.time);
+			myTFNew.doStuff(tentInstance);
+			DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(myTFNew);
+			oldNode.add(newNode);
+			
+			oldNode = newNode;
+			myTFOld = myTFNew;
+			
+		}
+		
+		printBest(oldNode);
+		
+		oldNode.
+	}
+	
+	public static void choosBest(DefaultMutableTreeNode root){
+		// find node with lowest value of node.getUserData.time
+		// root.getAllLeaves
+		Vector leaves = new Vector();
+		
+		leaves[0]= root.getFirstLeaf();
+		// bestLeaf = firstLeaf
+		// for i = 1 to numLeaves
+		// if leaf[i] is better than bestLeaf
+		// bestLeaf = leaf[i]
+	}
+	
+	public static void printBest(DefaultMutableTreeNode bestNode){
+		System.out.println((bestNode.getUserObject().toString()));
+		if(!bestNode.isRoot())
+			printBest(bestNode.getPreviousNode());
+	}
+
+	
+}

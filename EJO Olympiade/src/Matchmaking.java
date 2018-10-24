@@ -60,7 +60,7 @@ public class Matchmaking {
 		ArrayList<Station> stationen = new ArrayList<Station>();
 		ArrayList<Round> Matchlist = new ArrayList<Round>();
 		String name = "Plan";
-		String writepath = "C:\\Users\\Daniel Hollarek\\OneDrive\\Desktop" + name +".csv";
+		String writepath = "C:\\Users\\LiquidSpot\\Desktop" + name +".csv";
 		
 		
 		//Reihenfolge der erstellung legt Reihenfolge der Stationen auf plan fest

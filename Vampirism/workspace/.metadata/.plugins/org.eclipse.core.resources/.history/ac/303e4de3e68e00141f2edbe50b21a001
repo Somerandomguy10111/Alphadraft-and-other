@@ -1,0 +1,70 @@
+package vampirism;
+import javax.swing.JTree;
+import javax.swing.tree;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreeNode;
+
+public class main {
+	int goldbank		= 30;
+	int income			= 0;
+	int numBuildings	= 0;
+	int time			= 0;
+	
+	building tentInstance = new tent();
+	DefaultMutableTreeNode root = new DefaultMutableTreeNode();
+	root.setUserObject(tentInstance);
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+
+		while(depth of tree <34){
+			
+		}
+	}
+	
+	public static void doStuff(){
+		int buildChoice =(int) Math.ceil((Math.random()*9));
+		
+		building newBuilding = new building();
+		switch (buildChoice) {
+        case 1:  tentInstance.upgrade();
+                 break;
+        case 2:  newBuilding = new farm(1);
+                 break;
+        case 3:  newBuilding = new farm(2);
+                 break;
+        case 4:  newBuilding = new farm(3);
+                 break;
+        case 5:  newBuilding = new farm(4);
+                 break;
+        case 6:  newBuilding = new farm(5);
+                 break;
+        case 7:  newBuilding = new farm(6);
+                 break;
+        case 8:  newBuilding = new farm(7);
+                 break;
+        case 9:  newBuilding = new farm(8);
+                 break;
+        default: newBuilding = new building();
+                 break;
+}
+		
+		// calculate time to build
+		int seconds = (int) Math.ceil(newBuilding.cost - goldbank / (double) income); // if something goes wrong.. check this (double to int)
+		// calc new time to build
+		goldbank = (income * seconds + goldbank) - newBuilding.cost;
+
+		time += seconds;
+
+		if(newBuilding instanceof farm)
+			income += newBuilding.income;
+		else
+			income += newBuilding.income/2;
+		
+		numBuildings++;
+	}
+	
+	
+}

@@ -1,0 +1,9 @@
+package vampirism;
+
+public class ancientTree extends building {
+	public ancientTree() {
+	int ancientTreecount;
+	
+	
+	}
+}

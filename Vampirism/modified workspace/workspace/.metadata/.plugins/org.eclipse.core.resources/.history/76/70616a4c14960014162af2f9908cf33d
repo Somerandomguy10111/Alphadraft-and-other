@@ -1,0 +1,30 @@
+package vampirism;
+
+public class farm extends bioDome{
+	int globalLevel;
+	public farm (int level) {
+		globalLevel = level;
+		switch (level) {
+		case 1: 	if (bioDome1count != 1){
+					cost = 210;
+					income = 3;
+		}
+					else{
+		}
+					break;
+		case 2:   	if (bioDome2count != 1){
+					cost = 400;
+					income = 7;
+		}
+					else{
+					}
+					break;
+			}
+		}	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "build farm of type " + globalLevel;
+	}
+
+}

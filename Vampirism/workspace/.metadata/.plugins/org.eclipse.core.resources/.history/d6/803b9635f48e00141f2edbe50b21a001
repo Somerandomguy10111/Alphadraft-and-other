@@ -1,0 +1,40 @@
+package vampirism;
+import javax.swing.JTree;
+import javax.swing.tree.*;
+
+
+public class main {
+
+
+	
+	public static void main(String[] args) {
+		
+		building tentInstance = new tent();
+		
+		
+		TimeFrame myTFOld = new TimeFrame();
+		myTFOld.doStuff(tentInstance);
+		DefaultMutableTreeNode oldNode = new DefaultMutableTreeNode(myTFOld);
+		JTree mytree = new JTree(oldNode);
+
+		TimeFrame myTFNew = new TimeFrame();
+		DefaultMutableTreeNode newNode = new DefaultMutableTreeNode();
+		
+		while(myTFOld.numBuildings < 36){
+			myTFNew = new TimeFrame(myTFOld.goldbank, myTFOld.income, myTFOld.numBuildings, myTFOld.time);
+			myTFNew.doStuff(tentInstance);
+			newNode.setUserObject(myTFNew);
+			oldNode.add(newNode);
+			
+			oldNode = newNode;
+			myTFOld = myTFNew;
+			
+		}
+	}
+	
+	public void choosBest(JTree mytree){
+		
+	}
+
+	
+}

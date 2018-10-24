@@ -1,0 +1,26 @@
+package vampirism;
+
+public class tent extends building{
+	int level;
+	int wallcost = 0;
+	int wallLevel = 0;
+	
+	public tent() {
+		level = 1;
+		cost = 0;
+		income = 1;
+	}
+	
+	public void upgrade(){
+			level++;
+			cost = level*50 + wallCost();
+			//does level refer to level before or after upgrade?
+			//Wall cost needs to be defined individually
+			income = 2^(level-1);
+	}
+	
+	public int wallCost(){
+		return (2^wallLevel) *2;
+		
+	}
+}

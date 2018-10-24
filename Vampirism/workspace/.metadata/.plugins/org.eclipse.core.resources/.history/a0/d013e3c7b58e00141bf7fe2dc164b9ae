@@ -1,0 +1,37 @@
+package vampirism;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int goldbank	= 0;
+		int income		= 0;
+		int harvested	= 0;
+		int numBuildings = 0;
+		int seconds		= 0;
+		
+		while(numBuildings <= 34){
+			new building() newBuilding = decideWhatToBuild();
+			calcTime();
+			goldbank += income;
+
+			build();
+			
+		}
+		
+	}
+	
+	public static void decideWhatToBuild(){
+		
+	}
+	public static void build(){
+		int mincost = Math.min(tent.cost, farm(1).cost)
+		
+		if (goldbank > mincost){
+			
+			// decide which building to build
+		}
+	}
+	
+	
+}

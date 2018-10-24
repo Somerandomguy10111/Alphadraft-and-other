@@ -1,0 +1,13 @@
+package vampirism;
+
+public class farm extends building {
+	public farm(int type) {
+		switch type case:
+		case 1: 	cost = 210;
+					income = 3;
+		type = 1:   cost = 400;
+					income = 7;
+			
+	}
+
+}
